@@ -81,9 +81,10 @@ function proximaTela(numero) {
     const proxima = document.getElementById(`tela${numero}`);
     if (proxima) proxima.classList.remove('oculta');
 
-    // Se for a tela final, ativa os corações
+    // Se for a tela final, ativa os corações e a rolagem automática
     if (numero === 4) {
         gerarCoracoes();
+        iniciarScrollAutomatico();
     }
 }
 
@@ -128,8 +129,6 @@ function gerarCoracoes() {
         coracao.style.top = '100vh'; // Começa de baixo
         coracao.style.fontSize = (Math.random() * 50 + 10) + 'px'; // Tamanhos variados
         
-        // Pega uma cor aleatória, mas como emojis têm cor própria, usamos um truque de filtro se quiser, 
-        // ou substituímos por um ícone SVG. Para simplificar e ficar legal, usaremos texto mesmo.
         coracao.style.color = cores[Math.floor(Math.random() * cores.length)];
         
         // Tempo de animação aleatório para não subirem todos juntos
@@ -143,4 +142,28 @@ function gerarCoracoes() {
             coracao.remove();
         }, duracao * 1000);
     }, 150); // Gera um novo coração a cada 150ms
+}
+
+// 5. ROLAGEM AUTOMÁTICA DO TEXTO NA TELA FINAL
+function iniciarScrollAutomatico() {
+    const caixaTexto = document.getElementById('caixaTexto');
+    if (!caixaTexto) return;
+
+    let scrollInterval;
+    
+    // Pequeno atraso para a pessoa começar a ler antes de rolar
+    setTimeout(() => {
+        scrollInterval = setInterval(() => {
+            caixaTexto.scrollTop += 1; // Velocidade da descida (1 pixel por vez)
+            
+            // Se chegou no final, para o intervalo
+            if (caixaTexto.scrollTop + caixaTexto.clientHeight >= caixaTexto.scrollHeight) {
+                clearInterval(scrollInterval);
+            }
+        }, 50); // A cada 50 milissegundos
+    }, 3000); // Espera 3 segundos antes de começar a descer
+
+    // Se ela rolar a tela com o dedo ou mouse, a automação para e ela lê no próprio ritmo
+    caixaTexto.addEventListener('touchstart', () => clearInterval(scrollInterval));
+    caixaTexto.addEventListener('wheel', () => clearInterval(scrollInterval));
 }

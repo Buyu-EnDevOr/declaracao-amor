@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -58,26 +60,20 @@ body {
     opacity: 0;
 }
 
-/* Estilo da Foto */
+/* Estilo da Foto (Aumentado) */
 #fotoCasal {
-    max-width: 95vw; /* Aumentamos para ocupar quase toda a largura */
-    max-height: 85vh; /* Aumentamos a altura máxima */
+    max-width: 95vw; /* Ocupa quase toda a largura */
+    max-height: 85vh; /* Ocupa quase toda a altura */
     border-radius: 15px;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
     object-fit: contain; /* Garante que a foto não estique nem distorça */
 }
 
-/* Estilo dos textos */
+/* Estilo dos textos das perguntas */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-}
-
-p {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    max-width: 800px;
 }
 
 /* Container para alinhar os botões */
@@ -91,7 +87,7 @@ p {
     width: 350px;
 }
 
-/* Botões Base */
+/* Botões Base (Com tamanho fixo) */
 button {
     padding: 15px 0; 
     width: 140px; /* Largura fixa garante que Sim e Não tenham o mesmo tamanho */
@@ -125,9 +121,43 @@ button {
     right: 0; /* Posição inicial */
 }
 
+/* Tela Final - Fundo da carta */
 .texto-final {
     background: rgba(0, 0, 0, 0.6);
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
     backdrop-filter: blur(5px);
+    width: 90vw;
+    max-width: 600px; /* Limita a largura para ficar parecendo uma carta */
+}
+
+/* Configuração da rolagem */
+.texto-container {
+    max-height: 60vh; /* Se o texto for maior que 60% da tela, cria rolagem */
+    overflow-y: auto; 
+    padding-right: 15px; 
+    text-align: center;
+    scroll-behavior: smooth;
+}
+
+/* Deixa a barra de rolagem fininha e romântica */
+.texto-container::-webkit-scrollbar {
+    width: 8px;
+}
+.texto-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+.texto-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 77, 109, 0.8); /* Cor rosa puxado pro vermelho */
+    border-radius: 10px;
+}
+
+/* A Letra Bonitinha */
+.texto-container p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }

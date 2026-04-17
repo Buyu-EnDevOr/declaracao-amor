@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Você ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="lightSpeedCanvas"></canvas>
+
+    <div id="heartsContainer"></div>
+
+    <div id="tela1" class="tela ativa">
+        <img src="foto-casal.jpg" alt="Nossa Foto" id="fotoCasal">
+    </div>
+
+    <div id="tela2" class="tela oculta">
+        <h1>Deseja continuar?</h1>
+        <div class="botoes">
+            <button class="btn-sim" onclick="proximaTela(3)">Sim</button>
+            <button class="btn-nao" onclick="fogeBotao(this)">Não</button>
+        </div>
+    </div>
+
+    <div id="tela3" class="tela oculta">
+        <h1>Quer ser meu amor para o resto da vida?</h1>
+        <div class="botoes">
+            <button class="btn-sim" onclick="proximaTela(4)">Sim</button>
+            <button class="btn-nao" onclick="fogeBotao(this)">Não</button>
+        </div>
+    </div>
+
+    <div id="tela4" class="tela oculta final">
+        <div class="texto-final">
+            <h1>Eu te amo!</h1>
+            <p></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

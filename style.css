@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #000; /* Fundo preto do espaço */
+    color: #fff;
+    overflow: hidden; /* Evita que a tela crie barra de rolagem quando o botão fugir */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* O canvas das estrelas ficará no fundo absoluto */
+#lightSpeedCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Fica atrás de todo o conteúdo */
+}
+
+/* Container dos corações finais */
+#heartsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; 
+    pointer-events: none; /* Permite clicar através dos corações */
+}
+
+/* Configuração geral das telas */
+.tela {
+    position: relative;
+    z-index: 10; /* Fica na frente do fundo */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 2s ease-in-out; /* Transição suave para a foto sumir */
+}
+
+/* Classes para controlar o que aparece */
+.oculta {
+    display: none !important;
+}
+
+.sumindo {
+    opacity: 0;
+}
+
+/* Estilo da Foto */
+#fotoCasal {
+    max-width: 95vw; /* Aumentamos para ocupar quase toda a largura */
+    max-height: 85vh; /* Aumentamos a altura máxima */
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    object-fit: contain; /* Garante que a foto não estique nem distorça */
+}
+
+/* Estilo dos textos */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+/* Container para alinhar os botões */
+.botoes {
+    display: flex;
+    gap: 30px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 350px;
+}
+
+/* Botões Base */
+button {
+    padding: 15px 0; 
+    width: 140px; /* Largura fixa garante que Sim e Não tenham o mesmo tamanho */
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Botão Sim */
+.btn-sim {
+    background-color: #28a745;
+    color: white;
+    z-index: 11;
+}
+
+.btn-sim:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #28a745;
+}
+
+/* Botão Não */
+.btn-nao {
+    background-color: #dc3545;
+    color: white;
+    position: absolute; /* Permite que o JS mova o botão livremente */
+    transition: left 0.2s ease, top 0.2s ease; /* Deixa o pulo fluido */
+    z-index: 11;
+    right: 0; /* Posição inicial */
+}
+
+.texto-final {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}

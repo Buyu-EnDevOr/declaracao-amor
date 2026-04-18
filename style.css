@@ -128,36 +128,33 @@ button {
     border-radius: 20px;
     backdrop-filter: blur(5px);
     width: 90vw;
-    max-width: 600px; /* Limita a largura para ficar parecendo uma carta */
+    max-width: 600px; /* Limita a largura */
 }
 
-/* Configuração da rolagem */
+/* Configuração da rolagem - Estilo Letra de Música */
 .texto-container {
-    max-height: 60vh; /* Se o texto for maior que 60% da tela, cria rolagem */
+    max-height: 60vh; 
     overflow-y: auto; 
-    padding-right: 15px; 
     text-align: center;
     scroll-behavior: smooth;
+    
+    /* Esconde a barra de rolagem no Firefox */
+    scrollbar-width: none; 
+    
+    /* Esconde a barra de rolagem no Internet Explorer e Edge */
+    -ms-overflow-style: none; 
 }
 
-/* Deixa a barra de rolagem fininha e romântica */
+/* Esconde a barra de rolagem no Chrome, Safari e Opera */
 .texto-container::-webkit-scrollbar {
-    width: 8px;
-}
-.texto-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-.texto-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 77, 109, 0.8); /* Cor rosa puxado pro vermelho */
-    border-radius: 10px;
+    display: none;
 }
 
-/* A Letra Bonitinha */
+/* A Letra Bonitinha (Aumentada para estilo música) */
 .texto-container p {
     font-family: 'Dancing Script', cursive;
-    font-size: 2.2rem;
-    line-height: 1.4;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
